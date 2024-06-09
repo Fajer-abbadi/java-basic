@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise #7: Simple playlist </title>
+    <link rel="stylesheet" href="exercise7.css">
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+            let Button = document.getElementById("addButton");
+            let Input = document.getElementById("songTextInput");
+             let play = document.getElementById("playlist");
+
+            Button.addEventListener("click", function() {
+                let songName = Input.value.trim();
+                if (songName !== "") {
+                    let listItem = document.createElement("li");
+                    
+                    let songText = document.createElement("span");
+                    songText.textContent = songName;
+                    listItem.appendChild(songText);
+
+                    let delButton = document.createElement("button");
+                    delButton.textContent = "Delete";
+                    delButton.style.marginLeft = "10px";
+                    delButton.addEventListener("click", function() {
+                        play.removeChild(listItem);
+                    });
+
+                    listItem.appendChild(delButton);
+                    playlist.appendChild(listItem);
+
+                    songInput.value = "";
+                } else {
+                    alert("Please enter a song name.");
+                }
+            });
+        });
+              
+    </script>
+</head>
+<body>
+<p>this is your playlist, when enter the song and hit add song a list should be created withe delete button as image below</p>
+<img src="https://i.pinimg.com/564x/eb/77/c7/eb77c72dbf83e227ecfe9ebf5bf6a121.jpg" style="width: 10%;">
+<form>
+    <input type="text" id="songTextInput" size="40" placeholder="Song name">
+    <input type="button" id="addButton" value="Add Song">
+</form>
+
+<ul id="playlist">
+</ul>
+
+</body>
+</html>
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise #2: Changing box color on click</title>
+    <style>
+        #mydiv {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+       document.addEventListener("DOMContentLoaded",function(){
+        let mydiv=document.getElementById("mydiv")
+        let clickcount=0;
+        mydiv.addEventListener("click",function(){
+            clickcount++;
+            if(clickcount===1)
+            {mydiv.style.background="blue";}
+            
+            else if(clickcount===2){
+                mydiv.style.background="pink";}
+            
+                else if(clickcount===3){
+                    mydiv.style.background="red";}
+                    else{
+                        clickcount=0;
+                        mydiv.style.background="white"
+                    }
+
+          })
+       
+
+       })
+    </script>
+</head>
+<body>
+<div id="mydiv"></div>
+</body>
+</html>

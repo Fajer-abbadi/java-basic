@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Flags</title>
+    <style>
+        #flag-container {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        img {
+            max-width: 200px;
+            max-height: 300px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const flagContainer = document.getElementById("flag-container");
+            const countrySelect = document.getElementById("country-select");
+
+            countrySelect.addEventListener("change", function () {
+                flagContainer.innerHTML = "";
+
+                const selectedCountry = countrySelect.value;
+
+                if (selectedCountry) {
+                    const img = document.createElement("img");
+                    img.src = getFlagURL(selectedCountry);
+                    flagContainer.appendChild(img);
+                }
+            });
+
+            function getFlagURL(country) {
+                switch (country) {
+                    case "Jordan":
+                        return "https://upload.wikimedia.org/wikipedia/commons/c/c0/Flag_of_Jordan.svg";
+                    case "Lebanon":
+                        return "https://upload.wikimedia.org/wikipedia/commons/5/59/Flag_of_Lebanon.svg";
+                    case "Palestine":
+                        return "https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg";
+                    default:
+                        return "";
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <select id="country-select">
+        <option value="">--SELECT--</option>
+        <option value="Jordan">Jordan</option>
+        <option value="Lebanon">Lebanon</option>
+        <option value="Palestine">Palestine</option>
+    </select>
+
+    <div id="flag-container"></div>
+
+</body>
+</html>
